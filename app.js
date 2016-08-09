@@ -4,9 +4,17 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var dotenv = require('dotenv').config({silent: true});
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+
+// mongoose ODM
+var mongoose = require('mongoose');
+
+// connect to MongoDB
+var connectionString = 'mongodb://'+process.env.USERNAME+':'+process.env.PASSWORD+'@ds042729.mlab.com:42729/standup';
+mongoose.connect(connectionString);
 
 var app = express();
 
