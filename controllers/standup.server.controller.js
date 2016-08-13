@@ -15,5 +15,5 @@ exports.create = function(req, res) {
 };
 
 exports.getNote = function(req, res) {
-	res.render('newnote', {title: 'Standup - New Note'})
+	res.render('newnote', {title: 'Standup - New Note'});
 }
