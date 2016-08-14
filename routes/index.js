@@ -8,6 +8,10 @@ router.get('/', function(req, res, next) {
   return standupController.list(req, res);
 });
 
+router.post('/', function(req, res) {
+	return standupController.filterByMember(req, res);
+});
+
 router.get('/newnote', function(req, res) {
 	return standupController.getNote(req, res);
 });
