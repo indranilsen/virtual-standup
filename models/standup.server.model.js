@@ -19,19 +19,23 @@ var requiredStringValidator = [
 var standupSchema = new Schema ({
 	memberName: {
 		type: String,
-		required: true
+		required: true,
+		validate: memberNameValidator
 	},
 	project: {
 		type: String,
-		required: true
+		required: true,
+		validate: requiredStringValidator
 	},
 	workYesterday: {
 		type: String,
-		required: true
+		required: true,
+		validate: requiredStringValidator
 	},
 	workToday: {
 		type: String,
-		required: true
+		required: true,
+		validate: requiredStringValidator
 	},
 	impediment: {
 		type: String,
