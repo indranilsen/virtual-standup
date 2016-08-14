@@ -12,7 +12,8 @@ var requiredStringValidator = [
 	function (value) {
 		var testValue = value.trim();
 		return (testValue.length > 0);
-	}
+	},
+	'{PATH} cannot be empty'
 ];
 
 var standupSchema = new Schema ({
