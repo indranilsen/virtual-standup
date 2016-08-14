@@ -34,9 +34,15 @@ exports.create = function(req, res) {
 		impediment: req.body.impediment
 	});
 
-	entry.save();
-
-	res.redirect(301, '/');
+	entry.save(function (err) {
+		if (err) {
+			var errMsg = 'Error saving standup meeting note. ' + err;
+			res.render('newnote', {title: 'Standup - New Note (error)', message: errMsg});
+		} else {
+			console.log('Standup meeting note saved successfully!');
+			res.redirect(301, '/');
+		}
+	});
 };
 
 exports.getNote = function(req, res) {
