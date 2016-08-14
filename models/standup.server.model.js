@@ -1,6 +1,20 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var memberNameValidator = [
+	function  (value) {
+		return (value.length > 0 && value.toLocaleLowerCase() != 'none');
+	},
+	'Select a valid member name'
+];
+
+var requiredStringValidator = [
+	function (value) {
+		var testValue = value.trim();
+		return (testValue.length > 0);
+	}
+];
+
 var standupSchema = new Schema ({
 	memberName: {
 		type: String,
@@ -21,7 +35,7 @@ var standupSchema = new Schema ({
 	impediment: {
 		type: String,
 		required: true,
-		default: 'None'
+		default: 'none'
 	},
 	createdOn: { type: Date, default: Date.now }
 });
