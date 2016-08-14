@@ -1,5 +1,15 @@
 var Standup = require('../models/standup.server.model.js');
 
+exports.list = function (req, res) {
+	var query = Standup.find();
+
+	query.sort({ createdOn: 'desc'})
+		.limit(12)
+		.exec(function(err, results) {
+			res.render('index', {title: 'Standup - List', notes: results});
+		});
+};
+
 exports.create = function(req, res) {
 	var entry = new Standup({
 		memberName: req.body.memberName,

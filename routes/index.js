@@ -5,7 +5,7 @@ var standupController = require('../controllers/standup.server.controller');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  return standupController.list(req, res);
 });
 
 router.get('/newnote', function(req, res) {
